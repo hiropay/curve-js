@@ -103,6 +103,9 @@ export const COINS_ETHEREUM: { [index: string]: string } = lowerCaseValues({
     spell: "0x090185f2135308bad17527004364ebcc2d37e5f6", // SPELL
     t: "0xCdF7028ceAB81fA0C6971208e83fa7872994beE5", // T
     xaut: "0x68749665ff8d2d112fa859aa293f07a622782f38", // XAUt
+    usdm: "0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C", // USDM
+    wudsm: "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812", // wUSDM
+    
 });
 
 export const cTokensEthereum = [

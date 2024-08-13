@@ -23,6 +23,9 @@ export const COINS_ARBITRUM: { [index: string]: string } = lowerCaseValues({
     "eth": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
     "weth": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
     "wsteth": "0x5979D7b546E38E414F7E9822514be443A4800529",
+    usdm: "0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C", // USDM
+    wudsm: "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812", // wUSDM
+    
 
 })
 
