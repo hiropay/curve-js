@@ -1,0 +1,47 @@
+import { IGaugeUserVote, IVotingGauge, IDaoProposalListItem, IDaoProposalUserListItem, IDaoProposal, TVoteType } from './interfaces';
+export declare const crvSupplyStats: () => Promise<{
+    circulating: string;
+    locked: string;
+    total: string;
+    veCrv: string;
+    averageLockTime: string;
+}>;
+export declare const userCrv: (address?: string) => Promise<string>;
+export declare const userVeCrv: (address?: string) => Promise<{
+    veCrv: string;
+    veCrvPct: string;
+    lockedCrv: string;
+    unlockTime: number;
+}>;
+export declare const crvLockIsApproved: (amount: number | string) => Promise<boolean>;
+export declare const crvLockApproveEstimateGas: (amount: number | string) => Promise<number | number[]>;
+export declare const crvLockApprove: (amount: number | string) => Promise<string[]>;
+export declare const calcCrvUnlockTime: (days: number | string, start?: number | string) => number;
+export declare const createCrvLockEstimateGas: (amount: number | string, days: number | string) => Promise<number | number[]>;
+export declare const createCrvLock: (amount: number | string, days: number | string) => Promise<string>;
+export declare const increaseCrvLockedAmountEstimateGas: (amount: number | string) => Promise<number | number[]>;
+export declare const increaseCrvLockedAmount: (amount: number | string) => Promise<string>;
+export declare const increaseCrvUnlockTimeEstimateGas: (days: number | string) => Promise<number | number[]>;
+export declare const increaseCrvUnlockTime: (days: number | string) => Promise<string>;
+export declare const withdrawLockedCrvEstimateGas: () => Promise<number | number[]>;
+export declare const withdrawLockedCrv: () => Promise<string>;
+export declare const claimableFees: (address?: string) => Promise<string>;
+export declare const claimFeesEstimateGas: (address?: string) => Promise<number | number[]>;
+export declare const claimFees: (address?: string) => Promise<string>;
+export declare const getVotingGaugeList: () => Promise<IVotingGauge[]>;
+export declare const userGaugeVotes: (address?: string) => Promise<{
+    gauges: IGaugeUserVote[];
+    powerUsed: string;
+    veCrvUsed: string;
+}>;
+export declare const voteForGaugeNextTime: (gauge: string) => Promise<number>;
+export declare const voteForGaugeEstimateGas: (gauge: string, power: number | string) => Promise<number | number[]>;
+export declare const voteForGauge: (gauge: string, power: number | string) => Promise<string>;
+export declare const getProposalList: () => Promise<IDaoProposalListItem[]>;
+export declare const getProposal: (type: "PARAMETER" | "OWNERSHIP", id: number) => Promise<IDaoProposal>;
+export declare const userProposalVotes: (address?: string) => Promise<IDaoProposalUserListItem[]>;
+export declare const voteForProposalEstimateGas: (type: TVoteType, id: number, support: boolean) => Promise<number | number[]>;
+export declare const voteForProposal: (type: TVoteType, id: number, support: boolean) => Promise<string>;
+export declare const executeVoteEstimateGas: (type: TVoteType, id: number) => Promise<number | number[]>;
+export declare const executeVote: (type: TVoteType, id: number) => Promise<string>;
+export declare const isCanVoteExecute: (type: TVoteType, id: number) => Promise<boolean>;

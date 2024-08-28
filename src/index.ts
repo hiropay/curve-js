@@ -8,6 +8,10 @@ import {
     getUserClaimable,
 } from "./pools/utils.js";
 import {
+    yodlGetBestRouteAndOutput,
+    yodlSwapPriceImpact,
+} from './yodl.js'
+import {
     getBestRouteAndOutput,
     getArgs,
     swapExpected,
@@ -346,10 +350,12 @@ const curve = {
     },
     router: {
         getBestRouteAndOutput,
+        yodlGetBestRouteAndOutput,
         getArgs,
         expected: swapExpected,
         required: swapRequired,
         priceImpact: swapPriceImpact,
+        yodlSwapPriceImpact,
         isApproved: swapIsApproved,
         approve: swapApprove,
         swap,

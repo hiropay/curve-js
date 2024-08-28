@@ -466,7 +466,7 @@ const _getRouteKey = (route: IRoute, inputCoinAddress: string, outputCoinAddress
     return key
 }
 
-const _getExchangeArgs = (route: IRoute): {
+export const _getExchangeArgs = (route: IRoute): {
     _route: string[],
     _swapParams: number[][],
     _pools?: string[],
@@ -557,7 +557,7 @@ const _estimateGasForDifferentRoutes = async (routes: IRoute[], inputCoinAddress
     }
 }
 
-const _getBestRoute = memoize(
+export const _getBestRoute = memoize(
     async (inputCoinAddress: string, outputCoinAddress: string, amount: number | string): Promise<IRoute> => {
         const [inputCoinDecimals, outputCoinDecimals] = _getCoinDecimals(inputCoinAddress, outputCoinAddress);
         const _amount = parseUnits(amount, inputCoinDecimals);
@@ -667,7 +667,7 @@ const _getBestRoute = memoize(
     }
 )
 
-const _getOutputForRoute = memoize(
+export const _getOutputForRoute = memoize(
     async (route: IRoute, _amount: bigint): Promise<bigint> => {
         const contract = curve.contracts[curve.constants.ALIASES.router].contract;
         const { _route, _swapParams, _pools } = _getExchangeArgs(route);
@@ -683,7 +683,7 @@ const _getOutputForRoute = memoize(
     }
 );
 
-const _routesCache: IDict<{ route: IRoute, output: string, timestamp: number }> = {};
+export const _routesCache: IDict<{ route: IRoute, output: string, timestamp: number }> = {};
 const _getBestRouteAndOutput = (inputCoin: string, outputCoin: string, amount: number | string): { route: IRoute, output: string, timestamp: number } => {
     const [inputCoinAddress, outputCoinAddress] = _getCoinAddresses(inputCoin, outputCoin);
     const key = `${inputCoinAddress}-${outputCoinAddress}-${amount}`
